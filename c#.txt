@@ -1,0 +1,131 @@
+C# and .NET
+---------------------------------------------------------------------------------
+C# - Strongly typed and case sensitive programming language. When we say something is strongly typed we mean that the type of the object is known and available.
+---------------------------------------------------------------------------------
+.NET - Collection of libraries (assemblies) providing a functionality of making Windows and Web applications. It consists of CLR and FCL.
+---------------------------------------------------------------------------------
+CLR - The programming that manages the execution of programs written in any language that uses .NET Framework(C#, VB.Net, F# ...). Programmers write code in any language, when they compile their programs into an intermidiate form of code called CLI in an execution file that can be used from the CLR and then it converts it to into machine code to be executed from the processor. In general it converts code into CLI, memory management using the Garbage Collector.
+---------------------------------------------------------------------------------
+FCL - Framework class library. Library of classes, interfaces, and value types that provide access to system functionality.
+---------------------------------------------------------------------------------
+String - Immutable reference type.
+---------------------------------------------------------------------------------
+Assemblies - Smallest unit of deployment of a .net application. It can be a dll or an exe. Private assembly is a dll or exe which is sole property of one application only. It is stored in the application root folder. Public/Shared assembly is a dll, which can be used by multiple applications at a time. A shared assembly is stored in the GAC.
+---------------------------------------------------------------------------------
+Struct vs Class - Struct are value types, classes reference types. Enums is also a value type.
+---------------------------------------------------------------------------------
+ref and out - Both allow the called method to modify a parameter. Ref means that the parameter has a value on it before going into the function. Out means that the parameter has no official value before going into the function. The function must initialize it.
+---------------------------------------------------------------------------------
+Methods - Define behavior. Zero or more parameters, params keyword. Signature -> Name of method + parameters.
+---------------------------------------------------------------------------------
+Fields - variables of a class. A property can define a get and/or set accessor.
+---------------------------------------------------------------------------------
+Events - Allows a class to send notifications to other classes or  objects. Publisher raises the event. One or more subscribers process the event.
+---------------------------------------------------------------------------------
+Delegates - A variable that references(points to) a method. 
+public delegate void Writer(string message)
+---------------------------------------------------------------------------------
+Evengts - Based on delegates. Adds a layer of abstraction and protection on the delegate instance. This protection prevents clients of the delegate from resetting the delegate and its invocation list and only allows adding or removing targets from the invocation list.
+---------------------------------------------------------------------------------
+OOP - Pillars of OOP - Encapsulation, inheritance and polymorphism.
+Public - accessed by anyone, private - only in the current class, protected - in the current class and derived classes. Virtual methods can be ovveriden in derived classes. Internal types or members are accessible only within files in the same assembly.
+Encapsulation - Hiding functionality.
+Inheritance - A relationship between two classes, such that one class inherits from another. Provides reusability.
+Polymorphism - Many shapes. One variable can point to different types of objects. "Is" relationship.
+Abstract classes - Can not be instantiated. Can contain abstract classes. Not fully implemented. Abstract method has no implementation(only body). If you derive from an abstract class must implement those methods (abstract).
+Interfaces - Contain no implementation details. Defines only the signatures of methods, events, and properties. A type can implement multiple interfaces.
+When to use abstract classes and when interfaces - When we talk about abstract classes we are defining characteristics of an object type, specifying what an object is. When we talk about an interface we are talking about establishing a contract about what the object can do. An abstract class can have shared state or functionality. An interface is only a promise to provide the state or functionality. A good abstract class will reduce the amount of code that has to be rewritten because it's functionality or state can be shared. The interface has no defined information to be shared. Abstract classes can be inhereted without implementing the abstract methods. Hardcoded strings might compile to a single instance. ReferenceEquals() might return true(string pooling).
+Static methods are never overridable
+---------------------------------------------------------------------------------
+Equality and Comparisons.
+Reference vs Value Equality. Ref types contain a pointer to the value. They can chack for reference equality and value equality. Ref equality is quick. Comparing two objects from same type will return false (var a = new A(); var b == new A(); a == b (false) -> it compares them by reference. For string '==' does value equality. Casting value types to objects boxes them and then '==' compares them by references not values.
+Equality for floating points - Not working, because of keeping the values in memory, we should never do it. The main reason is precision. Float - 7 digits(32bit), Double - 15-16 digits(64bit), Decimal - 28-29 digits (128bit). Floating-point decimal values generally do not have an exact binary representation. This is a side effect of how the CPU represents floating point data. For this reason, you may experience some loss of precision, and some floating-point operations may produce unexpected results. To resolve the behavior, most programmers either ensure that the value is greater or less than what is needed, or they get and use a Binary Coded Decimal (BCD) library that will maintain the precision.
+object.Equals() - System.Object. Difference between == is that it is provided by the C# language, whereas Equals() comes from .NET. .NET has no concep of operators. It can be ovveriden because is virtual. We can make it to compare by value and not by reference. Equals compare values on structs. Reference equality for ref types and value equality for value types by default. Any type can ovveride the default behavior. If we use object.Equals is better to prevent null reference exception. ReferenceEquals.
+IEquatable<T> - We can define a strongly typed Equals. public bool Equals(T other), because otherwise we use object.Equals() and it is not type safe and there is no boxing and gives types saftey as well. IEquatable<T> useless for strings, because there is no boxing performed.
+== is different than object.Equals() - The first one ignores all .NET Equals() methods. The first one can not be used for non prymitive value types (structs). If two types are equal, their hashcodes must be equal as well. We must ovveride gethashcode() as well. Why ovveride equality for Ref. types - to get value semantics. When we have inheritance, the best place to have equality is in a virtual method.
+A type can implement IComparable<T> to declare, that instances can compare themselves with other instances.
+Equality - Used for ref and value, whereas comparison is for value only. If we implement IComparable<T> for a type, we must implement all for operators as well (<, >, <=, >=). If we overload comparisons operators we must overload and equality operators as well (==, !=, Iequatable<T>). IComparable is the non generic interface and is not commonly used. It is the same as the generic but is not type safe (public int CompareTo(object type))
+Comparing strings - 65 is the unicode code for letter 'A'. string.Compare(string str1, string str2). Letter orders: Cultural a < A, ordinal A < a.
+A comparer knows how to compare other objects (according to some criteria)!
+Array.Sort(foodsList, new FoodComparer()). If we compare two objects and one of them is derived from the base class and has more properties, this could be a problem. In such cases it is a good idea if we compare only the properties from the base class.
+IComparable - Defines an interface for an object with a CompareTo() method that takes another object of the same type and compares the current object to the passed one. IComparer - Defines an interface with a Compare() method that takes two objects of another type (which don't have to implement IComparable) and compares them.
+---------------------------------------------------------------------------------
+C# Collections fundamentals.
+Collection - Type responsible for managing groups of objects in memory(Lists, Dictionaries, Sets)
+Lists - The order is very important. Need to access elements by index(position) in the list. T[], List<T>, Collections<T>, ReadOnlyCollection<T>, ObservableCollection<T>.
+Dictionaries - Key Value pair. Dictionary<Tkey, TValue> - IDictionary<TKey, TValue>. 
+Sets - Treat the collection as a whole. Sets are collections that support being combined to form new sets. HashSet<T> - ISet<T>. Similar to dictionaries, based on hashtable, sets doesn't have lookup individual elements.
+Collection operations
+Reading - Look up an element, Enumerate the elements.
+Writing - Add and remove an item, replace and item.Lists: insert an item.
+Inside Arrays - Index-based list, ordered collection. Fixed sized. Store names of days in the week is good example for arrays usage. Implemented inside the CLR itself. Looking up element is fast and efficient. Arrays are very lightweight, because elements stored sequentially in memory. Why fixed size - The memory needed for the newly created elements might not be free. Arrays are reference types. All collections are ref type. string[] doesn't derive from object[]. Array covariance is implicitly casting derived[] to base[]. firstArr.CopyTo(copy, 0).
+Array.Reverse(arr), Array.Sort(), Array.FindIndex(predicate), Array.BinarySearch().Linq vs Array members - Array methods much faster, Linq consistent for all collexctions. Ling return new objects, array methods modify arrays inline.
+Collection interfaces - 
+IEnumerable<T> <--- ICollection<T> <--IList<T>
+				   <--IDictionary<TKey, TValue>
+				   <--ISet<T>
+	       <--IReadOnlyCollection<T> <--IReadOnlyList<T>
+					 <--IReadOnlyDictionary<TKey, TValue> 
+					
+The same applies for non generic interfaces.
+
+IEnumerable<T> - It declares an objects that can be enumerated. Linq can be run on all objects which are IEnumerable<T>. One single method IEnumerator<T> GetEnumerator().
+ICollection<T> Identifies a collection. I know how many elements I have(Count). You can modify the content. No information for the type of collection. Add(), Remove(), Clear(), IsReadOnly.
+IReadOnlyCollection<T> has only the Count property.
+IList<T> - You can lookup my elements with an index. this[index], IndexOf(), Insert(), RemoveAt(). Of course the properties of the base class.
+IReadOnlyList<T> - this[index] readonly access + base class.
+IDictionary<TKey, TValue> - Look up my elelemnts with a key. base class properties + this[key], Keys, Values, TryGetValue(), ContainsKey(), Add(), Remove().
+IReadOnlyDictionary<TKey, TValue> - base class + this[index], Keys, Values, TryGetValue(), ContainsKey().
+ISet<T> - I can do set operations with other collections. It has Set operations and Set comparisons methods. Add() + base class.
+
+Lists - 
+List<T> index based, high performance. Supports adding and removing elements. Inside it is an array, when adding the elements are copied into newly created bigger array. The capacity is doubled. We can specify the capacity new List<T>(12). ObservableCollection<T> - List that provides change notifications, commonly used in WPF. Collection<T> Allows customizing the behaviour of lists - RemoveItem(), SetItem(), ClearItems(), InsertItem().
+LinkedList<T> - Very fast adding/removing elements. Each element knows the next and previous elements. Insert and remove are fast. Non index based access! Use lots of memory. LinkedListNode<T> - prev and next items pointer, value.
+Stack<T> - Last in, first out collection. Queue<T> - First in, first out collection.
+
+HashTable - data structure, which implements associative array abstract data type, a structure that can map keys to values. It uses a hash function to compute an index into an array of buckets or slots, from which the desired value can be found.
+
+Dictionaries - 
+Dictionary<TKey, TValue> - basic implementation of IDictionary<TKey, TValue>. Collection of key value pair. Only elements with different keys. Algorithm for finding element is quick. Adding and removing is fast. The algortihm uses the hash code and decide which bucket to use. IEqualityComparer<T> - The rule is if two objects are equal, they must return the same hash code.
+ReadOnlyDictionary<TKey, TValue> - Read only access.
+SortedList<TKey, TValue> - Automatically keeps its values sorted. Internally it is not a hashtable like dict. It is two lists one for the keys and one for the values.
+SortedDictionary is the same as SortedList. The difference is inside - the first one sorting is balanced tree, adding and removing is very fast then the sorted list, fast look up both
+
+Sets - 
+HashSet<T> - Elements have no order. Implemented with hashtable internally, based on their values. Can't look up elements in a hashset. Usefull for guarantee uniqueness.
+SortedSet<T> - The same functionality as SortedDictionary<TKey, TValue>. Based on balanced tree. Can use sets to compare elements.
+
+Enumerators -
+IEnumerable<T> - Methods - IEnumerator<T> GetEnumerator(). Use this method to get an enumerator to enumerate a collection. Enumerate is like cursor which moves through the collection. bool MoveNext(), T Current. Yield return statement.
+
+Array Covariance - Can cast array of a derived type to array of the base type - bad thing to do.
+---------------------------------------------------------------------------------C# interfaces 
+Interfaces describe a group of related functions that can belong to any class or struct. Contract with public set of members: properties, methods, events, indexers.
+Abstract class - Has one or more Abstract Members. An abstract member is a member which is declared, but not implemented. All abstract members must be implemented in the child class.
+Concrete Class, Abstract Class, or Interface - The first one does't have compile time checking. Abstract class can contain implementation(default).
+Best practices - Program to an abstraction rather than a concrete type.
+Interface Segregation principle (The I from solid) - Clients shhould not be forced to depend upon methods that they do not use. Interfaces belong to clients, not hierarchies.
+---------------------------------------------------------------------------------
+C# Collections and Generics best practices - 
+Array - System.Array. Fixed size list of elements that can be accessed using a positional index number. Reference type, string[] arr; arr = new string[4]; Consider using an array when the required size of a list can be determinted at design time.
+Collection initializer - new string[4] {"One", "Two", "Three", "Four"};string[] str = {"One", "Two", "Three", "Four"};
+
+Building Generic Code with Generics - 
+Generics are writing code without specifying data types. Generics allow us to define a variable data type. Use generics to build reusable, type - natural classes. The T variable should be initialized in the <T> class or the method which uses it. Generic constraint : Where T.
+
+Generic Lists - List<T> - T defines the type of elements inside the lists. Popular methods Insert, Remove. Remove is slow and Insert. LinkedList<T> is fast for Insert and Remove.
+
+Generic Dictionaries - 
+Strongly typed collection of keys and values. Fast in look ups. Dictionary, SortedList, SortedDictionary. The key must be unique within the collection, must not be changed, cannot be null. Difference between SortedList and SortedDictionary
+SortedList - uses less memory. SortedList actually maintains a sorted array, rather than using a tree. It still uses binary search to find elements
+SortedDictionary - faster insertion and removal operations for unsorted data.
+
+Generic Collection Interfaces - IEnumerable<T> - GetEnumerator, ICollection<T> Count Add Remove, ILIst<T> Indexof Insert RemoveAt. Consider using an interface instead of a concrete type when passing collections to methods. Avoid returning an IEnumerable<T> if the collection must be modified by the caller and vise versa.
+yield - This keyword interacts with the foreach-loop. It allows each iteration in a foreach-loop be generated only when needed. In this way it can improve 
+performance. We use yield in methods that return IEnumerable or IEnumerable<T>.
+
+LINQ - Allows writing queries against data source. Data sources: Linq to Objects - any IEnumerable collections, Linq to SQL, Linq to Entities, Linq to Xml. Extension method is a method added to an existing type without modifying the original type.
+https://app.pluralsight.com/paths/skills/csharp
+https://app.pluralsight.com/player?course=csharp-best-practices-collections-generics&author=deborah-kurata&name=csharp-best-practices-collections-generics-m7&clip=0
+Username: InternovusTrainee (not case sensitive)
+Password: internovus123

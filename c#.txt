@@ -128,4 +128,4 @@ LINQ - Allows writing queries against data source. Data sources: Linq to Objects
 https://app.pluralsight.com/paths/skills/csharp
 https://app.pluralsight.com/player?course=csharp-best-practices-collections-generics&author=deborah-kurata&name=csharp-best-practices-collections-generics-m7&clip=0
 Username: InternovusTrainee (not case sensitive)
-Password: internovus123
+Password: 

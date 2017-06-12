@@ -124,4 +124,10 @@ Generic Collection Interfaces - IEnumerable<T> - GetEnumerator, ICollection<T> C
 yield - This keyword interacts with the foreach-loop. It allows each iteration in a foreach-loop be generated only when needed. In this way it can improve 
 performance. We use yield in methods that return IEnumerable or IEnumerable<T>.
 
-LINQ - Allows writing queries against data source. Data sources: Linq to Objects - any IEnumerable collections, Linq to SQL, Linq to Entities, Linq to Xml. Extension method is a method added to an existing type without modifying the original type.
+LINQ - Allows writing queries against data source. Data sources: Linq to Objects - any IEnumerable collections, Linq to SQL, Linq to Entities, Linq to Xml. Extension method is a method added to an existing type without modifying the original type. Lambda Expression is a method that can be passed as an argument to a method, when that argument is expecting a delegate type. Useful for writing LINQ query expressions. vendors.Where(v => v.CompanyName.Contains("Toy"))
+What type of data source works with LINQ? - Any data source that has a LINQ provider. Linq to Objects, to SQL, to Entities. What types do the LINQ extension methods extend? - IEnumerable, IEnumerable<T>.
+var vendorQuery = from v in vendors where v.CompanyName.Contains("Toy") select v;
+the query is not executed till we itterate the result. (vendorQuery.ToList()). The same is applicable for LINQ query syntax. We can pass and a lambda expression (v => v.CompanyName == "Toy"). Best practice is to use FirstOrDewfault or LastOrDefault, because they don't throw an exception. Difference between GroupBy and OrderBy - Both used to organize data. The orderby clause's purpose is to sort the query result by specific columns. The groupby clause's purpose is summarize unique combinations of columns values. Contrast this to the GROUP BY clause, which is used to group like column values into a single row.
+-------------------------------------------------------------------------------------------------------------------
+C# Events, Delegates and Lambdas
+The role of Events, Delegates and Event Handlers - 

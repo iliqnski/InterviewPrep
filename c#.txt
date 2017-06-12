@@ -141,3 +141,9 @@ Event -------------------------------- Event Handler
                   Delegate
 
 Event Handlers - Responsible for recieving and processing data from a delegate. Normally this is Sender and EventArgs. EventArgs responsible for encapsulatiing event data.
+
+Delegate - Method, Target, GetInvocationList() <-- MulticastDelegate <-- Custom Delegate. The multicast Delegate tracks delegate references using an invocation list. If we have an invokation list and the methods are with return value, only the last delegate wins.
+
+Event - public event WorkPerformedHandler WorkPerformed. They are wrappers against delegates.
+
+Raising Events - Calling the event like a method.

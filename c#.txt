@@ -131,3 +131,13 @@ the query is not executed till we itterate the result. (vendorQuery.ToList()). T
 -------------------------------------------------------------------------------------------------------------------
 C# Events, Delegates and Lambdas
 The role of Events, Delegates and Event Handlers - 
+Events - Providing notificanion, notifications. Provide a way to trigger notifications from end users or from objects. Button -> click event. Objects that raise the event don't need to explicitly know the object that will handle the event. Events pass EventArgs.
+
+Delegates - Is a specialized class, often called 'a function pointer', pipeline between an event and an event handler. based on a MulticastDelegate base class.
+
+Ev. Args.                              Ev. Args.
+  Send                                   Receive
+Event -------------------------------- Event Handler
+                  Delegate
+
+Event Handlers - Responsible for recieving and processing data from a delegate. Normally this is Sender and EventArgs. EventArgs responsible for encapsulatiing event data.

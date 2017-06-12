@@ -125,7 +125,3 @@ yield - This keyword interacts with the foreach-loop. It allows each iteration i
 performance. We use yield in methods that return IEnumerable or IEnumerable<T>.
 
 LINQ - Allows writing queries against data source. Data sources: Linq to Objects - any IEnumerable collections, Linq to SQL, Linq to Entities, Linq to Xml. Extension method is a method added to an existing type without modifying the original type.
-https://app.pluralsight.com/paths/skills/csharp
-https://app.pluralsight.com/player?course=csharp-best-practices-collections-generics&author=deborah-kurata&name=csharp-best-practices-collections-generics-m7&clip=0
-Username: InternovusTrainee (not case sensitive)
-Password: 

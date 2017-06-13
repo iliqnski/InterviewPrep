@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BFD6C304-C2DA-4481-9C7F-43C33770F551}</ProjectGuid>
+    <ProjectGuid>{A64B8D2D-EC1B-4E4D-90E7-307628CE4769}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Tests</RootNamespace>
@@ -45,8 +45,6 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Worker.cs" />
-    <Compile Include="WorkPerformedEventArgs.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

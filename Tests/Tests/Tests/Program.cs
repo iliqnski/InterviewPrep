@@ -2,6 +2,8 @@
 {
     using System;
 
+    public delegate int BizRulesDelegate(int x, int y);
+
     public class Program
     {
         static void Main()
@@ -21,9 +23,24 @@
             //Console.WriteLine(hours);
             //DoWork(delegate3);
 
+            BizRulesDelegate addDelegate = (a, b) => a + b;
+            BizRulesDelegate multiplyDelegate = (a, b) => a * b;
+
+            Func<int, int, int> funcAddDel = (a, b) => a + b;
+
+            var data = new ProcessData();
+            data.Process(2, 3, addDelegate);
+            data.ProcessFunc(2, 3, funcAddDel);
+
             var worker = new Worker();
             worker.WorkPerformed += new EventHandler<WorkPerformedEventArgs>(worker_WorkPerformed);
             worker.WorkCompleted += new EventHandler(worker_WorkCompleted);
+
+            //using lambda
+            worker.WorkPerformed += (s, e) =>
+            {
+                Console.WriteLine(e.Hours + " " + e.WorkType);
+            };
 
             //delegate inference
             worker.WorkPerformed += worker_WorkPerformed;
@@ -33,6 +50,22 @@
 
             worker.DoWork(8, WorkType.GenerateReports);
 
+            Action<string> messageTarget = ShowWindowsMessage;
+            messageTarget("Invoking message!");
+
+            Func<string, bool> logFunc = LogToEventLog;
+            logFunc("Log Message");
+        }
+
+        private static bool LogToEventLog(string message)
+        {
+            //log
+            return true;
+        }
+
+        private static void ShowWindowsMessage(string message)
+        {
+            Console.WriteLine(message);
         }
 
         static void worker_WorkPerformed(object sender, WorkPerformedEventArgs e)

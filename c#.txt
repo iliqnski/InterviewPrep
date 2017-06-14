@@ -141,3 +141,14 @@ Event -------------------------------- Event Handler
                   Delegate
 
 Event Handlers - Responsible for recieving and processing data from a delegate. Normally this is Sender and EventArgs. EventArgs responsible for encapsulatiing event data. When custom data needs to be passed the EventArgs class can be extended.
+
+Lambdas - SubmitButton.Click += (s, e) => MessageBox.Show("Button Clicked!"), provides a way to define inline methods using a concise syntax.
+(s, e) - inline method parameters
+=> lambda operator
+MessageBox.Show("Button Clicked!") - Method body
+Lambda expressions can be assigned to any delegate - AddDelegate ad = (a, b) => a + b; int result = ad(1, 1); //result 2 Delegates with no params can be handled using lambdas.
+
+The .NET framework provides several different delegates that provide flexible options:
+- Action<T> - Accepts a single parameter and returns no value
+- Func<T, TResult> - Accepts a single parameter and return a value of type TResult
+

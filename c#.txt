@@ -161,3 +161,5 @@ Abstraction, encapsulation, inheritance and polymorphism.
 Dependency injection - A software design pattern, that allows a choice of component to be made at run-time rather than compile time. This enable us to develop loosely coupled code. Patterns - Constructor injection, Property Injection, Method Injection, Ambient Context, Service Locator.
 Constructor Injection.
 Dependency injection containers - IOC containers. Unity(Microsoft), Spring.NET, Castle Windsor, Ninject and many others.
+Invertion of control - Pattern used to invert interfaces, flow and dependencies. Dependency Injection is implementation of IoC to invert dependencies. IoC container is a framework to do dependency injection.
+The IoC container can handle creating classes and resolving their dependencies.

@@ -17,9 +17,10 @@ namespace PracticalIoC
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            Bootstrapper.Initialise();
 
-            var factroy = new CustomControllerFactory();
-            ControllerBuilder.Current.SetControllerFactory(factroy);
+            //var factroy = new CustomControllerFactory();
+            //ControllerBuilder.Current.SetControllerFactory(factroy);
         }
     }
 }

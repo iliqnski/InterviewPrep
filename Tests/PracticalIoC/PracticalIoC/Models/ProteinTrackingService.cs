@@ -4,13 +4,14 @@
 
     public class ProteinTrackingService : IProteinTrackingService
     {
+        //We can use the same approach here like in the controller. We will resolve the dependency manually in the CustomControllerFactory
         private ProteinRepository repository = new ProteinRepository();
 
         public int Total
         {
             get
             {
-                return repository.GetData(new DateTime().Date).Total;
+                return 1; //repository.GetData(new DateTime().Date).Total;
             }
             set
             {
@@ -22,7 +23,7 @@
         {
             get
             {
-                return repository.GetData(new DateTime().Date).Goal;
+                return 1; //repository.GetData(new DateTime().Date).Goal;
             }
             set
             {

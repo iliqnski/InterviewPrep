@@ -162,4 +162,14 @@ Dependency injection - A software design pattern, that allows a choice of compon
 Constructor Injection.
 Dependency injection containers - IOC containers. Unity(Microsoft), Spring.NET, Castle Windsor, Ninject and many others.
 Invertion of control - Pattern used to invert interfaces, flow and dependencies. Dependency Injection is implementation of IoC to invert dependencies. IoC container is a framework to do dependency injection.
-The IoC container can handle creating classes and resolving their dependencies. The practical meaning of using this pattern - It is very popular scenario in our projects to create objects which needs another object to execut. If we want to modify a class(code) we need also to make a modification in other classes which are dependencies and this situation is not good. Dependency injection solves this problem, because it removes dependency between objects and makes it indepenedent. If we have an object that depend on another object, it should depened on the abstraction of this object.
+The IoC container can handle creating classes and resolving their dependencies.
+---------------------------------------------------------------------------------
+Design Patterns - 
+Singleton - a static class that allows creating only one instance.
+const int a
+    must be initialized
+    initialization must be at compile time
+readonly int a
+    can use default value, without initializing
+    initialization can be at run time
+volatile keyword indicates that a field can be modified in the program by something such as the operating system, the hardware, or a concurrently executing thread.

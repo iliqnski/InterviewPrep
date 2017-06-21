@@ -173,3 +173,4 @@ readonly int a
     can use default value, without initializing
     initialization can be at run time
 volatile keyword indicates that a field can be modified in the program by something such as the operating system, the hardware, or a concurrently executing thread.
+Dependency injection - Any time you instantiate or reference a concrete type within a class, you take a Dependency and make your code harder to test.

@@ -175,3 +175,6 @@ readonly int a
 volatile keyword indicates that a field can be modified in the program by something such as the operating system, the hardware, or a concurrently executing thread.
 Open-closed principle - Classes, modules and functions should have abstract interfaces, from whence all implementations are created.
 Design pattern, general and reusable solution to a common problem in software design.
+
+Creational Design Patterns - Deal with object creation mechanisms.
+Singleton - Class that is supposed to have only one(single) instance. Possible problems - Lazy loading(created when first needed, Thread-safe). Simple Factory - Not a real pattern, encapsulates object creation logic, a class that returns an object from a passing argument.

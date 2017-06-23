@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Creational\AbstractFactory.cs" />
+    <Compile Include="Creational\FactoryMethod.cs" />
     <Compile Include="Creational\LogEvent.cs" />
     <Compile Include="Creational\Logger.cs" />
     <Compile Include="Creational\SimpleFactory.cs" />

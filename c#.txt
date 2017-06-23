@@ -178,3 +178,4 @@ Design pattern, general and reusable solution to a common problem in software de
 
 Creational Design Patterns - Deal with object creation mechanisms.
 Singleton - Class that is supposed to have only one(single) instance. Possible problems - Lazy loading(created when first needed, Thread-safe). Simple Factory - Not a real pattern, encapsulates object creation logic, a class that returns an object from a passing argument.
+Abstract factory is dealing with creating more than one onject. This is the difference with the factory method.

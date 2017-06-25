@@ -9,33 +9,33 @@
 
     abstract class ContinentFactory
     {
-        public abstract Herbivore CreateHerbivore();
-        public abstract Carnivore CreateCarnivore();
+        //public abstract Herbivore CreateHerbivore();
+        //public abstract Carnivore CreateCarnivore();
     }
 
     class AfricaFactory : ContinentFactory
     {
-        public override Carnivore CreateCarnivore()
-        {
-            throw new WildeBeest();
-        }
+        //public override Carnivore CreateCarnivore()
+        //{
+        //    throw new WildeBeest();
+        //}
 
-        public override Herbivore CreateHerbivore()
-        {
-            throw new Lion();
-        }
+        //public override Herbivore CreateHerbivore()
+        //{
+        //    throw new Lion();
+        //}
     }
 
     class AmericaFactory : ContinentFactory
     {
-        public override Herbivore CreateHerbivore()
-        {
-            throw new Bison();
-        }
+        //public override Herbivore CreateHerbivore()
+        //{
+        //    throw new Bison();
+        //}
 
-        public override Carnivore CreateCarnivore()
-        {
-            throw new Wolf();
-        }
+        //public override Carnivore CreateCarnivore()
+        //{
+        //    throw new Wolf();
+        //}
     }
 }

@@ -26,5 +26,15 @@ namespace AspNetMVC.Controllers
 
             return View();
         }
+
+        public string NewsList(int page = 1)
+        {
+            return page.ToString();
+        }
+
+        public FileResult GetFile(string fileName)
+        {
+            return this.File(fileName, "application/octet-stream");
+        }
     }
 }

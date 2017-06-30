@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using AspNetMVC.Models;
 
 namespace AspNetMVC.Controllers
 {
@@ -10,7 +11,17 @@ namespace AspNetMVC.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            var model = new MyModel
+            {
+                Countries = new List<SelectListItem>
+                {
+                    new SelectListItem { Value = "1", Text="BG" },
+                    new SelectListItem { Value = "2", Text="SF" },
+                    new SelectListItem { Value = "3", Text="ML" },
+                }
+            };
+
+            return View(model);
         }
 
         public ActionResult About()

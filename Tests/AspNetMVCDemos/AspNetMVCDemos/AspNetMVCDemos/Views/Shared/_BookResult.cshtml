@@ -1,0 +1,17 @@
+﻿@model IEnumerable<AspNetMVCDemos.Models.BookViewModel>
+
+@foreach (var book in Model)
+{
+    <div>
+        <strong>book.Title</strong>
+    </div>
+    
+    @Ajax.ActionLink("See content", "ContentById", new { id = book.Id },
+    new AjaxOptions
+    {
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "book-content"
+    })
+}
+
+<div id="book-content"></div>

@@ -1,0 +1,10 @@
+Solid principle - 
+S - Single responsibility principle states that every object should have a single responsibility, and that responsibility should be entirely encapsulated by the class, there should never be more than one reason for a class to change. Strive for low coupling but high cohesion.
+
+O - open/closed principle - Software entities(classes, modules, functions, etc.) should be open for extension, but closed for modification. Three approaches to achieve OCP. Parameters, inheritance(child types override behavior of a base class(or interface), composition - client code depends on abstraction.
+
+L - Liskov substitution principle - Subtypes must be substitutable for their base types. Child classes must not remove base class behavior. OOP taches use of IS-A to describe child classes relationship to baase classes.
+
+I - Interface segregation principle - Clients should not be forced to depend on methods they do not use. prefer small interfaces to fat on es.
+
+D - The dependency inversion principle. Dependencies should be exposed through interfaces. It allows calling code to inject the dependencies a class needs when it is instantiated. Constructor injection and property injection(via setter in the property), paramter injection(in the method parameters).

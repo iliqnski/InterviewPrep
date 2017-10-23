@@ -5,6 +5,9 @@
 
     public interface IGamesService
     {
-        IQueryable<Game> GetPulbicGames(int page = 1);
+        IQueryable<Game> GetPulbicGames(int page = 1, string userId = null);
+        Game CreateGame(string name, string number, string userId);
+
+        IQueryable<Game> GetGameDetails(int id);
     }
 }

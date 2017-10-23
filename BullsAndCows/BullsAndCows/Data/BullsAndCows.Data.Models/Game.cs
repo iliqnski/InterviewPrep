@@ -45,5 +45,9 @@
         public string BlueUserId { get; set; }
 
         public virtual User BlueUser { get; set; }
+
+        public string RedUserNumber { get; set; }
+
+        public string BlueUserNumber { get; set; }
     }
 }

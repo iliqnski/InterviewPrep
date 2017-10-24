@@ -52,5 +52,24 @@
                 .All()
                 .Where(g => g.Id == id);
         }
+
+        public bool GameCanBeJoinedByUser(int id, string userId)
+        {
+            return !this.gamesRepo
+                .All()
+                .Any(g => g.Id == id && g.RedUserId == userId);
+        }
+
+        public string JoinGame(int id, string userId)
+        {
+            var gameToJoin = this.gamesRepo.GetById(id);
+            gameToJoin.BlueUserId = userId;
+
+            //TODO: start game state
+
+
+            this.gamesRepo.SaveChanges();
+            return gameToJoin.Name;
+        }
     }
 }

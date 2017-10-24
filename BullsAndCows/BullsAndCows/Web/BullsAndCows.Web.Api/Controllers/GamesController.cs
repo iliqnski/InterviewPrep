@@ -54,5 +54,17 @@
 
             return this.Created(string.Format("/api/Games/{0}", newGame.Id), gameResult);
         }
+
+        [Authorize]
+        public IHttpActionResult Put(int id)
+        {
+            var userId = this.User.Identity.GetUserId();
+            if (this.gamesService.GameCanBeJoinedByUser(id, userId))
+            {
+                return this.BadRequest("Game is already joined by you!");
+            }
+
+
+        }
     }
 }

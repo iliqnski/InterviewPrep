@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PingYourPackage.Domain", "PingYourPackage.Domain\PingYourPackage.Domain.csproj", "{A3232929-74D2-4D96-966F-9085CE6936A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PingYourPackage.API", "PingYourPackage.API\PingYourPackage.API.csproj", "{C4F6A31F-7B94-4CBB-A77A-3210096AEE53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PingYourPackage.API.Tests", "PingYourPackage.API.Tests\PingYourPackage.API.Tests.csproj", "{E8E43190-035E-420D-B715-36DBEC2A9AE0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{BDB0E4BE-6BEC-4E4F-A352-5C35F9FF1428}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PingYourPackage.API.WebHost", "PingYourPackage.API.WebHost\PingYourPackage.API.WebHost.csproj", "{784C13B6-5D28-45E0-9917-ADAA3B693732}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A3232929-74D2-4D96-966F-9085CE6936A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3232929-74D2-4D96-966F-9085CE6936A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3232929-74D2-4D96-966F-9085CE6936A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3232929-74D2-4D96-966F-9085CE6936A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4F6A31F-7B94-4CBB-A77A-3210096AEE53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4F6A31F-7B94-4CBB-A77A-3210096AEE53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4F6A31F-7B94-4CBB-A77A-3210096AEE53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4F6A31F-7B94-4CBB-A77A-3210096AEE53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8E43190-035E-420D-B715-36DBEC2A9AE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8E43190-035E-420D-B715-36DBEC2A9AE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8E43190-035E-420D-B715-36DBEC2A9AE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8E43190-035E-420D-B715-36DBEC2A9AE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{784C13B6-5D28-45E0-9917-ADAA3B693732}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{784C13B6-5D28-45E0-9917-ADAA3B693732}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{784C13B6-5D28-45E0-9917-ADAA3B693732}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{784C13B6-5D28-45E0-9917-ADAA3B693732}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
